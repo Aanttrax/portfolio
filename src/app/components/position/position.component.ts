@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './position.component.html',
   styleUrl: './position.component.scss',
 })
-export class PositionComponent {}
+export class PositionComponent {
+  position = 'Software Engineer';
+  position2 = 'Data Analyst';
+}
