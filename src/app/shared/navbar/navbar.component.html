@@ -1,1 +1,50 @@
-<p>navbar works!</p>
+<nav
+  class="w-full flex items-center bg-gradient-to-b from-black sm:bg-none p-8 sm:px-16 sm:py-10 fixed z-40 pointer-events-none">
+  <div class="w-full flex justify-between items-start mx-auto">
+    <a routerLink="/" class="flex items-start" (click)="setActive('hero')">
+      <p
+        class="text-white text-[26px] lg:text-[36px] font-bold pointer-events-auto cursor-pointer flex">
+        ART
+      </p>
+    </a>
+
+    <ul class="list-none hidden sm:flex flex-col gap-5">
+      @for (nav of navLinks; track $index) {
+        <li
+          class="relative flex items-center hover:text-white text-[18px] lg:text-[24px] font-bold pointer-events-auto cursor-pointer"
+          [ngClass]="{ 'text-white': active === nav.id, 'text-slate-500': active !== nav.id }"
+          (click)="setActive(nav.id)">
+          @if (active === nav.id) {
+            <div class="fixed right-10 w-2 h-6 lg:h-8 bg-quaternary"></div>
+          }
+          <a [href]="'#' + nav.id">{{ nav.title }}</a>
+        </li>
+      }
+    </ul>
+
+    <div class="sm:hidden flex flex-1 justify-end items-center">
+      <img
+        [src]="toggle ? '/assets/close.svg' : '/assets/menu.svg'"
+        alt="menu"
+        class="w-[28px] h-[28px] object-contain pointer-events-auto cursor-pointer"
+        (click)="toggleMenu()" />
+      @if (toggle) {
+        <div class="p-6 absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-30 rounded-xl">
+          <ul class="list-none flex justify-end items-start flex-1 flex-col gap-4">
+            @for (nav of navLinks; track $index) {
+              <li
+                class="font-poppins font-medium cursor-pointer text-[16px]"
+                [ngClass]="{
+                  'text-quaternary': active === nav.id,
+                  'text-secondary': active !== nav.id,
+                }"
+                (click)="setActive(nav.id); toggleMenu()">
+                <a [href]="'#' + nav.id">{{ nav.title }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</nav>

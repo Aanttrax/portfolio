@@ -11,7 +11,8 @@
       "@components/*": ["src/app/components/*"],
       "@services/*": ["src/app/services/*"],
       "@models/*": ["src/app/models/*"],
-      "@guards/*": ["src/app/guards/*"]
+      "@guards/*": ["src/app/guards/*"],
+      "@data/*": ["src/app/data/*"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,
