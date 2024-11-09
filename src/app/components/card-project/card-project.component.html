@@ -1,6 +1,6 @@
 <section
   #projectCard
-  [@fadeIn]="inView ? 'show' : 'hidden'"
+  [@fadeIn]="inView() ? 'show' : 'hidden'"
   class="w-full mt-[-2px] flex flex-col md:flex-row gap-5"
   [ngClass]="isEven ? 'md:flex-row' : 'md:flex-row-reverse'">
   <div class="relative w-full md:w-3/5">

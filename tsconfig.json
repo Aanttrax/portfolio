@@ -12,7 +12,8 @@
       "@services/*": ["src/app/services/*"],
       "@models/*": ["src/app/models/*"],
       "@guards/*": ["src/app/guards/*"],
-      "@data/*": ["src/app/data/*"]
+      "@data/*": ["src/app/data/*"],
+      "@pipes/*": ["src/app/pipes/*"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

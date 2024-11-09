@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, viewChild } from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
@@ -10,7 +10,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
   styleUrl: './spaceman.component.scss',
 })
 export class SpacemanComponent implements AfterViewInit {
-  @ViewChild('canvasContainer', { static: true }) canvasContainer!: ElementRef;
+  canvasContainer = viewChild.required<ElementRef>('canvasContainer');
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
@@ -39,7 +39,7 @@ export class SpacemanComponent implements AfterViewInit {
     this.renderer = new THREE.WebGLRenderer({ alpha: true });
     this.renderer.setClearColor(0x000000, 0);
     this.renderer.setSize(width, height);
-    this.canvasContainer.nativeElement.appendChild(this.renderer.domElement);
+    this.canvasContainer().nativeElement.appendChild(this.renderer.domElement);
 
     // Lights
     this.addLights();

@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, signal, viewChild } from '@angular/core';
 import { CardProjectComponent } from '@components/card-project/card-project.component';
 import { DataService } from '@services/data.service';
 
@@ -30,18 +30,19 @@ import { DataService } from '@services/data.service';
   ],
 })
 export class PortfolioComponent implements OnInit {
-  @ViewChild('projectTitle', { static: true }) projectCard!: ElementRef;
-  inView = false;
+  inView = signal<boolean>(false);
+  projectCard = viewChild.required<ElementRef>('projectTittle');
+
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     const observer = new IntersectionObserver(
       entries => {
-        this.inView = entries[0].isIntersecting;
+        this.inView.set(entries[0].isIntersecting);
       },
       { threshold: 0.1 }
     );
-    observer.observe(this.projectCard.nativeElement);
+    observer.observe(this.projectCard().nativeElement);
   }
 
   get portfolio() {

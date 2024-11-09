@@ -15,7 +15,3 @@ export interface IPortfolio {
   description: string;
   image: string;
 }
-
-export interface IData {
-  experiences: IExperiences[];
-}

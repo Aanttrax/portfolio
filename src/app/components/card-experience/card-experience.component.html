@@ -1,1 +1,29 @@
-<p>card-experience works!</p>
+<section
+  tabindex="0"
+  (keydown.enter)="onClick.emit()"
+  (keydown.space)="onClick.emit()"
+  (click)="onClick.emit()"
+  [ngClass]="{
+    'cursor-pointer p-5 max-w-xl relative text-center': true,
+    'text-quaternary': isMobile(),
+  }">
+  @if (isActive() || isMobile()) {
+    <div class="absolute left-0 top-0 bottom-0 w-3 md:w-5 bg-tertiary my-6 sm:block hidden"></div>
+  }
+  <h3
+    [ngClass]="{
+      'text-xl lg:text-2xl xl:text-3xl font-bold sm:pl-8': true,
+      'text-quaternary': isActive() || isMobile(),
+      'text-slate-600': !(isActive() || isMobile()),
+    }">
+    {{ experience().title }}
+  </h3>
+  <p
+    [ngClass]="{
+      'text-md lg:text-lg xl:text-2xl sm:font-medium pt-2 sm:pl-8': true,
+      'text-white': isActive() || isMobile(),
+      'text-slate-600': !(isActive() || isMobile()),
+    }">
+    {{ experience().company_name }} | {{ experience().date }}
+  </p>
+</section>

@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, input, OnInit, signal, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-card-project',
@@ -27,18 +27,17 @@ export class CardProjectComponent implements OnInit {
   name = input.required<string>();
   description = input.required<string>();
   image = input.required<string>();
-
-  @ViewChild('projectCard', { static: true }) projectCard!: ElementRef;
-  inView = false;
+  projectCard = viewChild.required<ElementRef>('projectCard');
+  inView = signal<boolean>(false);
 
   ngOnInit(): void {
     const observer = new IntersectionObserver(
       entries => {
-        this.inView = entries[0].isIntersecting;
+        this.inView.set(entries[0].isIntersecting);
       },
       { threshold: 0.15 }
     );
-    observer.observe(this.projectCard.nativeElement);
+    observer.observe(this.projectCard().nativeElement);
   }
 
   get isEven(): boolean {
