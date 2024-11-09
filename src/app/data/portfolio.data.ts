@@ -1,7 +1,7 @@
 const images = {
+  oscs: '../assets/oscs.png',
+  devnotes: '../assets/devnotes.png',
   algorithms: '../assets/algorithms.png',
-  devnotes: '../assets/algorithms.png',
-  oscs: '../assets/algorithms.png',
 };
 
 export const portfolio = [

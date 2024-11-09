@@ -1,7 +1,7 @@
 <nav
   class="w-full flex items-center bg-gradient-to-b from-black sm:bg-none p-8 sm:px-16 sm:py-10 fixed z-40 pointer-events-none">
   <div class="w-full flex justify-between items-start mx-auto">
-    <a routerLink="/" class="flex items-start" (click)="setActive('hero')">
+    <a routerLink="/" [href]="'#hero'" class="flex items-start" (click)="setActive('hero')">
       <p
         class="text-white text-[26px] lg:text-[36px] font-bold pointer-events-auto cursor-pointer flex">
         ART

@@ -18,5 +18,4 @@ export interface IPortfolio {
 
 export interface IData {
   experiences: IExperiences[];
-  portfolio: IPortfolio[];
 }
