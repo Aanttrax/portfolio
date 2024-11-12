@@ -1,1 +1,63 @@
-<p>contact works!</p>
+<div class="md:m-12 md:px-48 flex flex-col sm:flex-row gap-10 overflow-hidden">
+  <div class="flex-[0.8] md:pb-40 mx-4 sm:mx-auto" [@fadeInUp]="animationState">
+    <h3 class="text-white font-bold md:text-[80px] sm:text-[50px] text-[40px]">Contact</h3>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="mt-12 gap-4 flex flex-col">
+      <span class="text-white font-medium mt-3">Full Name</span>
+      <input
+        type="text"
+        name="name"
+        formControlName="name"
+        placeholder="Enter your full name"
+        class="bg-tertiary p-4 text-white border font-medium"
+        required />
+      @if (name?.invalid && name?.touched) {
+        <div class="invalid-feedback">
+          @if (name?.errors?.['required']) {
+            <span>* Required field</span>
+          }
+        </div>
+      }
+      <span class="text-white font-medium mt-3">Email Address</span>
+      <input
+        type="email"
+        name="email"
+        formControlName="email"
+        placeholder="Enter your email address"
+        class="bg-tertiary p-4 text-white border font-medium"
+        required />
+      @if (email?.invalid && email?.touched) {
+        <div class="invalid-feedback">
+          @if (email?.errors?.['required']) {
+            <span>* Required field</span>
+          }
+          @if (email?.errors?.['email']) {
+            <span>* Invalid email</span>
+          }
+        </div>
+      }
+
+      <span class="text-white font-medium mt-3">Message</span>
+      <textarea
+        name="message"
+        formControlName="message"
+        placeholder="Enter your message"
+        rows="10"
+        class="bg-tertiary p-4 text-white border font-medium"
+        required></textarea>
+      @if (message?.invalid && message?.touched) {
+        <div class="invalid-feedback">
+          @if (message?.errors?.['required']) {
+            <span>* Required field</span>
+          }
+        </div>
+      }
+
+      <button
+        type="submit"
+        class="bg-tertiary py-3 px-8 w-fit text-white font-bold shadow-md shadow-primary">
+        {{ loading ? 'Sending...' : 'Send' }}
+      </button>
+    </form>
+  </div>
+</div>
