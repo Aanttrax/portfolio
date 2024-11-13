@@ -1,51 +1,36 @@
 import { Injectable } from '@angular/core';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from '@envs/environment';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 
-interface IResponse {
+interface IData {
+  name: string;
+  email: string;
   message: string;
-  status: string;
 }
+
+const { TEMPLATE_ID, SERVICE_ID, PUBLIC_KEY, USER_NAME } = environment;
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmailService {
-  private API_KEY = environment.API_KEY;
-  private API_URL = environment.API_URL;
+  private TEMPLATE_ID = TEMPLATE_ID;
+  private SERVICE_ID = SERVICE_ID;
+  private PUBLIC_KEY = PUBLIC_KEY;
+  private USER_NAME = USER_NAME;
 
-  constructor(private httpClient: HttpClient) {}
+  public sendEmail(data: IData): Observable<EmailJSResponseStatus> {
+    const body = {
+      from_name: data.name,
+      to_name: this.USER_NAME,
+      email: data.email,
+      message: data.message,
+    };
+    const emailJsPromise = emailjs.send(this.SERVICE_ID, this.TEMPLATE_ID, body, {
+      publicKey: this.PUBLIC_KEY,
+    });
 
-  public sendEmail(data: {
-    name: string;
-    email: string;
-    message: string;
-  }): Observable<HttpResponse<IResponse>> {
-    console.log(data, 'body');
-    //
-    const body = JSON.stringify({
-      from: 'Acme <onboarding@resend.dev>',
-      to: ['arielrt20@gmail.com'],
-      subject: 'Contact Portfolio',
-      html:
-        '<strong>' +
-        data.name +
-        '</strong></br><p>' +
-        data.message +
-        '</p><p>' +
-        data.email +
-        '</p>',
-    });
-    //
-    console.log(body, 'body');
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.API_KEY}`,
-    });
-    return this.httpClient.post<IResponse>(this.API_URL, body, {
-      headers: headers,
-      observe: 'response',
-    });
+    return from(emailJsPromise);
   }
 }

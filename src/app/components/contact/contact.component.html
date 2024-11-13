@@ -54,9 +54,10 @@
       }
 
       <button
+        [disabled]="contactForm.invalid"
         type="submit"
         class="bg-tertiary py-3 px-8 w-fit text-white font-bold shadow-md shadow-primary">
-        {{ loading ? 'Sending...' : 'Send' }}
+        {{ loading() ? 'Sending...' : 'Send' }}
       </button>
     </form>
   </div>

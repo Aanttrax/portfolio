@@ -1,9 +1,13 @@
 export interface IEnviroment {
-  API_URL: string;
-  API_KEY: string;
+  TEMPLATE_ID: string;
+  SERVICE_ID: string;
+  PUBLIC_KEY: string;
+  USER_NAME: string;
 }
 
 export const environment: IEnviroment = {
-  API_URL: 'https://api.resend.com/emails',
-  API_KEY: 're_ELhrRA1a_Ajzu8LBRx52FwKsJdcjRqADb',
+  TEMPLATE_ID: 'xx',
+  SERVICE_ID: 'xx',
+  PUBLIC_KEY: 'xx',
+  USER_NAME: 'Aanttrax',
 };

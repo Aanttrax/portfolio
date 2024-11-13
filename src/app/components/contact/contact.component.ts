@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { EmailJSResponseStatus } from '@emailjs/browser';
 import { EmailService } from '@services/email.service';
 @Component({
   selector: 'app-contact',
@@ -23,7 +24,7 @@ import { EmailService } from '@services/email.service';
   ],
 })
 export class ContactComponent implements OnInit {
-  loading = false;
+  loading = signal<boolean>(false);
   animationState = 'hidden';
 
   public contactForm!: FormGroup;
@@ -47,8 +48,16 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loading = true;
-    // this.emailService.sendEmail(this.contactForm.value).subscribe({next:(resp:any)=>console.log(resp,'***')})
+    this.loading.set(true);
+    this.emailService.sendEmail(this.contactForm.value).subscribe({
+      next: (response: EmailJSResponseStatus) => {
+        console.log('SUCCESS!', response.status, response.text);
+        this.loading.set(false);
+      },
+      error: (error: EmailJSResponseStatus) => {
+        console.error('FAILED...', error.text);
+      },
+    });
   }
 
   get name(): AbstractControl | null {
