@@ -7,6 +7,7 @@ import {
   signal,
   viewChild,
   OnDestroy,
+  inject,
 } from '@angular/core';
 import { CardExperienceComponent } from '@components/card-experience/card-experience.component';
 import { ExperienceDetailComponent } from '@components/experience-detail/experience-detail.component';
@@ -46,7 +47,7 @@ export class ExperienceComponent implements OnInit, AfterViewInit, OnDestroy {
   inView = signal<boolean>(false);
   selectedJob = signal<IExperiences>(experiences[0]);
 
-  constructor(private dataService: DataService) {}
+  private dataService = inject(DataService);
 
   ngOnInit(): void {
     this.selectedJob.set(this.experiences[0]);

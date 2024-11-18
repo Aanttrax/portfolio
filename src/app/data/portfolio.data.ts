@@ -1,26 +1,19 @@
 const images = {
-  oscs: '../assets/oscs.png',
-  devnotes: '../assets/devnotes.png',
-  algorithms: '../assets/algorithms.png',
+  portfoliov1: '../assets/portfolio-1.0.0.png',
+  rickMorty: '../assets/rickMorty.png',
 };
 
 export const portfolio = [
   {
-    name: 'Open Source Computer Science Repo',
+    name: 'Portfolio-1.0.0',
     description:
-      'A GitHub repo with over 17,000 stars containing a curated list of free online courses from reputable universities that satisfy undergraduate computer science requirements.',
-    image: images['oscs'],
+      'This is a portfolio project built with Angular 18. It incorporates the 3D library "Three.js" and leverages the latest features of Angular. Additionally, the project implements CI/CD pipelines using GitHub Actions, incorporating tools like Husky and lint-staged to enforce code quality through pre-commit hooks and staged file linting',
+    image: images['portfoliov1'],
   },
   {
-    name: 'Dev Notes',
+    name: 'Rick and Morty Angular App',
     description:
-      'A newsletter with over 6,000 readers made for software developers to keep up with this rapidly evolving industry, with a sister platform in progress.',
-    image: images['devnotes'],
-  },
-  {
-    name: 'Visually Understanding Algorithms',
-    description:
-      'A showcase of animated algorithms coded using TypeScript, with the video garnering over 400,000 views.',
-    image: images['algorithms'],
+      'This is a sample project that uses Angular 16 to display information about the "Rick and Morty" TV series. The project utilizes the public [Rick and Morty API](https://rickandmortyapi.com/).',
+    image: images['rickMorty'],
   },
 ];

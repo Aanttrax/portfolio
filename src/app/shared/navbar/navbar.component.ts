@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit, signal } from '@angular/core';
 import { DataService } from '@services/data.service';
 
 @Component({
@@ -10,11 +10,10 @@ import { DataService } from '@services/data.service';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnInit {
-  active = 'hero';
-  toggle = false;
-  scrolled = false;
-
-  constructor(private dataService: DataService) {}
+  active = signal<string>('hero');
+  toggle = signal<boolean>(false);
+  scrolled = signal<boolean>(false);
+  private dataService = inject(DataService);
 
   ngOnInit(): void {
     this.observeSections();
@@ -22,16 +21,16 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.scrolled = window.scrollY > 100;
+    this.scrolled.set(window.scrollY > 100);
   }
 
   setActive(sectionId: string) {
-    this.active = sectionId;
+    this.active.set(sectionId);
     window.scrollTo(0, 0);
   }
 
   toggleMenu() {
-    this.toggle = !this.toggle;
+    this.toggle.set(!this.toggle());
   }
 
   private observeSections() {
@@ -40,7 +39,7 @@ export class NavbarComponent implements OnInit {
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            this.active = entry.target.id;
+            this.active.set(entry.target.id);
           }
         });
       },

@@ -85,18 +85,18 @@ export class SpacemanComponent implements AfterViewInit {
   onWindowResize() {
     if (window.innerWidth < 768) {
       this.scale.set(1, 1, 1);
-      this.position.set(0.2, -0.1, 0);
+      this.position.set(0.2, -1, 0);
     } else if (window.innerWidth < 1024) {
-      this.scale.set(1.33, 1.33, 1.33);
-      this.position.set(0.2, -0.3, 0);
+      this.scale.set(1, 1, 1);
+      this.position.set(0.2, 0, 0);
     } else if (window.innerWidth < 1280) {
-      this.scale.set(1.5, 1.5, 1.5);
+      this.scale.set(1.3, 1.3, 1.3);
       this.position.set(0.2, -0.4, 0);
     } else if (window.innerWidth < 1536) {
-      this.scale.set(1.66, 1.66, 1.66);
+      this.scale.set(1.4, 1.4, 1.4);
       this.position.set(0.2, -0.5, 0);
     } else {
-      this.scale.set(2, 2, 2);
+      this.scale.set(1.6, 1.6, 1.6);
       this.position.set(0.2, -0.7, 0);
     }
     if (this.spaceman) {

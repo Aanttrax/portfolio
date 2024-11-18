@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -28,11 +28,8 @@ export class ContactComponent implements OnInit {
   animationState = 'hidden';
 
   public contactForm!: FormGroup;
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private emailService: EmailService
-  ) {}
+  private formBuilder = inject(FormBuilder);
+  private emailService = inject(EmailService);
 
   ngOnInit(): void {
     this.animationState = 'show';
