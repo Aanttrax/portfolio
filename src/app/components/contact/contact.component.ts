@@ -1,5 +1,13 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  signal,
+  viewChild,
+  AfterViewInit,
+} from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -16,24 +24,46 @@ import { EmailService } from '@services/email.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
   animations: [
-    trigger('fadeInUp', [
-      state('hidden', style({ opacity: 0, transform: 'translateY(100px)' })),
-      state('show', style({ opacity: 1, transform: 'translateY(0)' })),
-      transition('hidden => show', [animate('1s 0.2s ease-out')]),
+    trigger('textVariant', [
+      state(
+        'hidden',
+        style({
+          transform: 'translateY(-50px)',
+          opacity: 0,
+        })
+      ),
+      state(
+        'show',
+        style({
+          transform: 'translateY(0)',
+          opacity: 1,
+        })
+      ),
+      transition('hidden => show', [animate('1.25s ease-out')]),
     ]),
   ],
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, AfterViewInit {
+  contact = viewChild.required<ElementRef>('contact');
   loading = signal<boolean>(false);
-  animationState = 'hidden';
+  inView = signal<boolean>(false);
 
   public contactForm!: FormGroup;
   private formBuilder = inject(FormBuilder);
   private emailService = inject(EmailService);
 
   ngOnInit(): void {
-    this.animationState = 'show';
     this.contactForm = this.createContactForm();
+  }
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(
+      entries => {
+        this.inView.set(entries[0].isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(this.contact().nativeElement);
   }
 
   private createContactForm(): FormGroup {

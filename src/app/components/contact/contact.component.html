@@ -1,7 +1,9 @@
 <div class="md:m-12 md:px-48 flex flex-col sm:flex-row gap-10 overflow-hidden">
-  <div class="flex-[0.8] md:pb-40 mx-4 sm:mx-auto" [@fadeInUp]="animationState">
+  <div
+    #contact
+    class="flex-[0.8] md:pb-40 mx-4 sm:mx-auto"
+    [@textVariant]="inView() ? 'show' : 'hidden'">
     <h3 class="text-white font-bold md:text-[80px] sm:text-[50px] text-[40px]">Contact</h3>
-
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="mt-12 gap-4 flex flex-col">
       <span class="text-white font-medium mt-3">Full Name</span>
       <input
