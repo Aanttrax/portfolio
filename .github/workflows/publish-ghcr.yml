@@ -30,7 +30,12 @@ jobs:
 
       - name: Tag Docker and build image with semantic version
         run: |
-          docker build . -t ghcr.io/aanttrax/portfolio:${{ steps.get-version.outputs.version }}
+          docker build . \
+            --build-arg NG_APP_TEMPLATE_ID=$NG_APP_TEMPLATE_ID \
+            --build-arg NG_APP_SERVICE_ID=$NG_APP_SERVICE_ID \
+            --build-arg NG_APP_PUBLIC_KEY=$NG_APP_PUBLIC_KEY \
+            --build-arg NG_APP_USER_NAME=$NG_APP_USER_NAME \
+          -t ghcr.io/aanttrax/portfolio:${{ steps.get-version.outputs.version }}
         env:
           NG_APP_TEMPLATE_ID: ${{ secrets.NG_APP_TEMPLATE_ID }}
           NG_APP_SERVICE_ID: ${{ secrets.NG_APP_SERVICE_ID }}
