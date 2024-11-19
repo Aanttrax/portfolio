@@ -80,6 +80,9 @@ export class ContactComponent implements OnInit, AfterViewInit {
       next: (response: EmailJSResponseStatus) => {
         console.log('SUCCESS!', response.status, response.text);
         this.loading.set(false);
+        this.name?.setValue('');
+        this.email?.setValue('');
+        this.message?.setValue('');
       },
       error: (error: EmailJSResponseStatus) => {
         console.error('FAILED...', error.text);
