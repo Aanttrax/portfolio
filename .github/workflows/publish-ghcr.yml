@@ -1,0 +1,42 @@
+name: Build and Push Angular Image to GHCR
+
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    name: Build and push to GHCR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get version from VERSION file
+        id: get-version
+        run: |
+          if [ -f VERSION ]; then
+            VERSION=$(cat VERSION)
+          else
+            echo "VERSION file not found. Exiting..."
+            exit 1
+          fi
+          echo "Current version: $VERSION"
+          echo ::set-output name=version::$VERSION
+
+      - name: Login GHCR
+        run: |
+          docker login --username Aanttrax --password ${{ secrets.GH_PAT }} ghcr.io
+
+      - name: Tag Docker and build image with semantic version
+        run: |
+          docker build . -t ghcr.io/aanttrax/portfolio:${{ steps.get-version.outputs.version }}
+        env:
+          NG_APP_TEMPLATE_ID: ${{ secrets.NG_APP_TEMPLATE_ID }}
+          NG_APP_SERVICE_ID: ${{ secrets.NG_APP_SERVICE_ID }}
+          NG_APP_PUBLIC_KEY: ${{ secrets.NG_APP_PUBLIC_KEY }}
+          NG_APP_USER_NAME: Aanttrax
+
+      - name: Push Docker image to GHCR
+        run: |
+          docker push ghcr.io/aanttrax/portfolio:${{ steps.get-version.outputs.version }}

@@ -1,0 +1,14 @@
+<section class="text-center md:text-left md:px-20 lg:px-40">
+  <div #projectTittle [@textVariant]="inView() ? 'show' : 'hidden'">
+    <h2 class="text-white font-bold md:text-[80px] sm:text-[50px] text-[40px]">Portfolio</h2>
+  </div>
+  <article class="mt-10 md:mt-20 flex flex-col gap-10 md:gap-20">
+    @for (project of portfolio; track $index) {
+      <app-card-project
+        [index]="$index"
+        [name]="project.name"
+        [description]="project.description"
+        [image]="project.image" />
+    }
+  </article>
+</section>

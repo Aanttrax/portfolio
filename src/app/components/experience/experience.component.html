@@ -1,0 +1,24 @@
+@if (experiences) {
+  <section class="sm:my-20">
+    <div #titleExperience [@textVariant]="inView() ? 'show' : 'hidden'">
+      <h2 class="text-center text-white font-bold md:text-[80px] sm:text-[50px] text-[40px]">
+        Experience
+      </h2>
+    </div>
+    <article
+      class="relative mt-10 md:mt-20 md:p-20 flex flex-col items-center sm:flex-row sm:items-start">
+      <div class="flex flex-col z-10 sm:w-auto">
+        @for (experience of experiences; track $index) {
+          <app-card-experience
+            [experience]="experience"
+            [isActive]="selectedJob() === experience"
+            [isMobile]="isMobile()"
+            (onClick)="selectJob(experience)" />
+        }
+      </div>
+      <div class="flex justify-end z-10 sm:block hidden">
+        <app-experience-detail [experience]="selectedJob()" />
+      </div>
+    </article>
+  </section>
+}

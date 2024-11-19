@@ -1,0 +1,25 @@
+<section
+  class="relative cursor-default font-medium text-white text-[16px] xs:text-[20px] sm:text-[30px] md:text-[36px] 2xl:text-[66px] leading-[32px] 2xl:leading-[40px] w-full flex justify-center items-center">
+  <article class="absolute inset-0 top-[-30px] sm:top-[-10px] lg:top-0 flex flex-col">
+    <div
+      class="text first absolute left-1 md:left-2 2xl:left-4 flex"
+      aria-label="Software Developer">
+      @for (item of position; track $index) {
+        <span
+          class="inline-block transform-style-3d origin-bottom animate-textRotate1"
+          [style.animationDelay]="$index * 0.05 + 's'">
+          {{ item === ' ' ? '\u00A0' : item }}
+        </span>
+      }
+    </div>
+    <div class="text second absolute left-1 md:left-2 2xl:left-4 flex" aria-label="Data analyst">
+      @for (item of position2; track $index) {
+        <span
+          class="inline-block transform-style-3d origin-bottom animate-textRotate2"
+          [style.animationDelay]="$index * 0.05 + 's'">
+          {{ item === ' ' ? '\u00A0' : item }}
+        </span>
+      }
+    </div>
+  </article>
+</section>
