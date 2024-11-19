@@ -1,4 +1,4 @@
-FROM node:22.4.1-alpine3.19 AS ui-build
+FROM node:23.2.0-alpine3.19 AS ui-build
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
