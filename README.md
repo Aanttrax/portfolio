@@ -17,3 +17,5 @@ npx tailwindcss init
 npm install @angular/animations
 npm install three
 ng add @angular-three/core
+
+ng add @ngx-env/builder

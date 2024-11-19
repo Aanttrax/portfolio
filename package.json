@@ -32,6 +32,7 @@
     "@angular/compiler-cli": "^18.2.0",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@ngx-env/builder": "^18.0.2",
     "@types/jasmine": "~5.1.0",
     "@types/three": "^0.169.0",
     "angular-eslint": "18.4.0",
