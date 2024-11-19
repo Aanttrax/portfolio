@@ -8,6 +8,6 @@ RUN ng build
 
 FROM nginx
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=ui-build /app/dist/inkubera-app/browser /usr/share/nginx/html
+COPY --from=ui-build /app/dist/portfolio/browser /usr/share/nginx/html
 EXPOSE 4200
 CMD ["nginx", "-g", "daemon off;"]
