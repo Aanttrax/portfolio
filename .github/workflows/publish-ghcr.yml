@@ -26,8 +26,7 @@ jobs:
             exit 1
           fi
           echo "Current version: $VERSION"
-          echo ::set-output name=version::$VERSION
-
+          echo "{version}={VERSION}" >> $GITHUB_OUTPUT
       - name: Login GHCR
         run: |
           docker login --username Aanttrax --password ${{ secrets.GH_PT }} ghcr.io
@@ -53,7 +52,7 @@ jobs:
       - name: Extract Content from Image
         run: |
           container_id=$(docker create ghcr.io/aanttrax/portfolio:${{ steps.get-version.outputs.version }})
-          docker cp $container_id:/usr/share/nginx/html ./public
+          docker cp $container_id:/usr/share/nginx/html/html ./public
           docker rm $container_id
 
       - name: Deploy 🚀
