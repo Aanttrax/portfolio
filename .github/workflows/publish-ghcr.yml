@@ -26,7 +26,7 @@ jobs:
             exit 1
           fi
           echo "Current version: $VERSION"
-          echo "{version}={VERSION}" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
       - name: Login GHCR
         run: |
           docker login --username Aanttrax --password ${{ secrets.GH_PT }} ghcr.io
