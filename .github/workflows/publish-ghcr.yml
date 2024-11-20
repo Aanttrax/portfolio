@@ -58,6 +58,9 @@ jobs:
       - name: Modify Base Href
         run: |
           sed -i 's|<base href="/.*">|<base href="/portfolio/">|' ./public/html/index.html
+          sed -i 's|src="assets/|src="/portfolio/assets/|' ./public/html/index.html
+          sed -i 's|src="parallax/|src="/portfolio/parallax/|' ./public/html/index.html
+          sed -i 's|src="3d/|src="/portfolio/3d/|' ./public/html/index.html
           
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
