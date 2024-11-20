@@ -52,7 +52,7 @@ jobs:
       - name: Extract Content from Image
         run: |
           container_id=$(docker create ghcr.io/aanttrax/portfolio:${{ steps.get-version.outputs.version }})
-          docker cp $container_id:/usr/share/nginx/html/html ./public
+          docker cp $container_id:/usr/share/nginx/html ./public
           docker rm $container_id
 
       - name: Deploy 🚀
