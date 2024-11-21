@@ -71,7 +71,7 @@ jobs:
 
       - name: Modify Base Href
         run: |
-          sed -i 's/RUN ng build/RUN ng build --base-href="\/portfolio\/" --deploy-url="\/portfolio/public/\"/' Dockerfile
+          sed -i 's/RUN ng build/RUN ng build --base-href="\/portfolio\/" --deploy-url="\/portfolio\/public\/"/' Dockerfile
 
       - name: Tag Docker and build image with semantic version
         run: |
