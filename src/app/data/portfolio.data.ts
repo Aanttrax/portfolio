@@ -1,5 +1,5 @@
 const images = {
-  portfoliov1: '../assets/portfolio-1.0.0.png',
+  portfoliov1: '../assets/portfolio-1.0.0.webp',
   rickMorty: '../assets/rickMorty.png',
 };
 

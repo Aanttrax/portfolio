@@ -1,21 +1,61 @@
-## Code scaffolding
+# Portfolio v1.0.0 Angular 18
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Portfolio logo](./screenShot/screenshot1.webp)
 
-## Running unit tests
+This is a portfolio project built with Angular 18. It incorporates the 3D library "Three.js" and leverages the latest features of Angular. Additionally, the project implements CI/CD pipelines using GitHub Actions, incorporating tools like Husky and lint-staged to enforce code quality through pre-commit hooks and staged file linting. The project is located in [Portfolio Site](https://aanttrax.github.io/portfolio/).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Screenshots
 
-## Running end-to-end tests
+![Screenshot 2](./screenShot/screenshot2.webp)
+![Screenshot 3](./screenShot/screenshot3.webp)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Features
 
-## Install dependencies
+- List of Experiences.
+- Projects details.
+- Send Email and contact.
 
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init
-npm install @angular/animations
-npm install three
-ng add @angular-three/core
+## Requirements
 
-ng add @ngx-env/builder
+- [Node.js](https://nodejs.org/) installed on your system.
+- [Angular CLI](https://cli.angular.io/) installed globally.
+
+## Installation
+
+Follow these steps to install and run the application:
+
+1.  Clone the repository:
+
+    ```bash
+    git clone https://github.com/Aanttrax/portfolio.git
+    ```
+
+2.  Navigate to the project directory:
+
+    ```bash
+    cd portfolio
+    ```
+
+3.  Install the dependencies:
+
+````bash
+  npm install
+  ```
+
+4. Start the application:
+
+  ```bash
+  npm start
+  ```
+
+5. Open your browser and go to http://localhost:4200/.
+
+
+## Contribution
+
+If you want to contribute to this project, feel free to open issues and submit pull requests.
+
+## Contact
+You can contact the project author at Arielrt20@gmail.com or Arielrt_@hotmail.com
+<!-- ng add @ngx-env/builder -->
+````
