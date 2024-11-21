@@ -1,6 +1,6 @@
 # Portfolio v1.0.0 Angular 18
 
-![Portfolio logo](./screenShot/screenshot1.webp)
+![Portfolio logo](./screenShot/screenshot3.webp)
 
 This is a portfolio project built with Angular 18. It incorporates the 3D library "Three.js" and leverages the latest features of Angular. Additionally, the project implements CI/CD pipelines using GitHub Actions, incorporating tools like Husky and lint-staged to enforce code quality through pre-commit hooks and staged file linting. The project is located in [Portfolio Site](https://aanttrax.github.io/portfolio/).
 
