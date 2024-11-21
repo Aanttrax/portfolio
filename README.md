@@ -38,24 +38,24 @@ Follow these steps to install and run the application:
 
 3.  Install the dependencies:
 
-````bash
-  npm install
-  ```
+    ```bash
+    npm install
+    ```
 
-4. Start the application:
+4.  Start the application:
 
-  ```bash
-  npm start
-  ```
+    ```bash
+    npm start
+    ```
 
-5. Open your browser and go to http://localhost:4200/.
-
+5.  Open your browser and go to http://localhost:4200/.
 
 ## Contribution
 
 If you want to contribute to this project, feel free to open issues and submit pull requests.
 
 ## Contact
+
 You can contact the project author at Arielrt20@gmail.com or Arielrt_@hotmail.com
+
 <!-- ng add @ngx-env/builder -->
-````
