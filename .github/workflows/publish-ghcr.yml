@@ -49,19 +49,45 @@ jobs:
         run: |
           docker push ghcr.io/aanttrax/portfolio:${{ steps.get-version.outputs.version }}
 
-      - name: Extract Content from Image
+  deploy:
+    name: Build and deploy to GITHUBPAGES
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get version from VERSION file
+        id: get-version
         run: |
-          container_id=$(docker create ghcr.io/aanttrax/portfolio:${{ steps.get-version.outputs.version }})
-          docker cp $container_id:/usr/share/nginx/html ./public
-          docker rm $container_id
-          
+          if [ -f VERSION ]; then
+            VERSION=$(cat VERSION)
+          else
+            echo "VERSION file not found. Exiting..."
+            exit 1
+          fi
+          echo "Current version: $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Modify Base Href
         run: |
-          sed -i 's|<base href="/.*">|<base href="/portfolio/">|' ./public/html/index.html
-          sed -i 's|src="assets/|src="/portfolio/assets/|' ./public/html/index.html
-          sed -i 's|src="parallax/|src="/portfolio/parallax/|' ./public/html/index.html
-          sed -i 's|src="3d/|src="/portfolio/3d/|' ./public/html/index.html
-          
+          sed -i 's/RUN ng build/RUN ng build --base-href="\/portfolio\/"/' Dockerfile
+
+      - name: Tag Docker and build image with semantic version
+        run: |
+          docker build . \
+            --build-arg NG_APP_TEMPLATE_ID=$NG_APP_TEMPLATE_ID \
+            --build-arg NG_APP_SERVICE_ID=$NG_APP_SERVICE_ID \
+            --build-arg NG_APP_PUBLIC_KEY=$NG_APP_PUBLIC_KEY \
+            --build-arg NG_APP_USER_NAME=$NG_APP_USER_NAME \
+          -t portfolio:${{ steps.get-version.outputs.version }}
+
+      - name: Extract Content from Image
+        run: |
+          container_id=$(docker create portfolio:${{ steps.get-version.outputs.version }})
+          docker cp $container_id:/usr/share/nginx/html ./public
+          docker rm $container_id
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
