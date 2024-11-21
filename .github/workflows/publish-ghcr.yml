@@ -72,7 +72,10 @@ jobs:
       - name: Modify Base Href
         run: |
           sed -i 's/RUN ng build/RUN ng build --base-href="\/portfolio\/" --deploy-url="\/portfolio\/"/' Dockerfile
-          sed -i 's/..\/assets\//..\/portfolio\/assets\//' src/app/data/portfolio.data.ts
+          sed -i 's/..\/assets\//..\/portfolio\/assets\//g' src/app/data/portfolio.data.ts
+          sed -i 's/src="\/parallax\//src="\/portfolio\/parallax\//g' src/app/components/hero/hero.component.html
+          sed -i 's/\/3d\/spaceman.glb/\/portfolio\/3d\/spaceman.glb/g' src/app/components/spaceman/spaceman.component.ts
+          sed -i 's/\/assets\//\/portfolio\/assets\//g' src/app/shared/navbar/navbar.component.html
 
       - name: Tag Docker and build image with semantic version
         run: |
