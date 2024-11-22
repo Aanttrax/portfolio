@@ -40,7 +40,7 @@ export class PortfolioComponent implements OnInit {
       entries => {
         this.inView.set(entries[0].isIntersecting);
       },
-      { threshold: 0.15 }
+      { threshold: 0.05 }
     );
     observer.observe(this.projectCard().nativeElement);
   }
