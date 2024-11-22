@@ -60,7 +60,11 @@
       <button
         [disabled]="contactForm.invalid"
         type="submit"
-        class="bg-tertiary py-3 px-8 w-fit text-white font-bold shadow-md shadow-primary">
+        [ngClass]="{
+          'text-slate-600': contactForm.invalid,
+          'text-white': !contactForm.invalid,
+        }"
+        class="bg-tertiary py-3 px-8 w-fit font-bold shadow-md shadow-primary">
         {{ loading() ? 'Sending...' : 'Send' }}
       </button>
     </form>

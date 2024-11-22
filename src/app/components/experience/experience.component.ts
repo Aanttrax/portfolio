@@ -60,7 +60,7 @@ export class ExperienceComponent implements OnInit, AfterViewInit, OnDestroy {
       entries => {
         this.inView.set(entries[0].isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
     observer.observe(this.titleExperience().nativeElement);
   }
