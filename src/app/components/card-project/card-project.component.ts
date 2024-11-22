@@ -27,6 +27,7 @@ export class CardProjectComponent implements OnInit {
   name = input.required<string>();
   description = input.required<string>();
   image = input.required<string>();
+  link = input.required<string>();
   projectCard = viewChild.required<ElementRef>('projectCard');
   inView = signal<boolean>(false);
 

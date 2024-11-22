@@ -4,6 +4,7 @@ import { NavbarComponent } from '@shared/navbar/navbar.component';
 import { PortfolioComponent } from '@components/portfolio/portfolio.component';
 import { ExperienceComponent } from '@components/experience/experience.component';
 import { ContactComponent } from '@components/contact/contact.component';
+import { FooterComponent } from '@shared/footer/footer.component';
 
 @Component({
   selector: 'app-landing',
@@ -14,6 +15,7 @@ import { ContactComponent } from '@components/contact/contact.component';
     PortfolioComponent,
     ExperienceComponent,
     ContactComponent,
+    FooterComponent,
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
