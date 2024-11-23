@@ -48,6 +48,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
   contact = viewChild.required<ElementRef>('contact');
   loading = signal<boolean>(false);
   inView = signal<boolean>(false);
+  send = signal<boolean>(false);
 
   public contactForm!: FormGroup;
   private formBuilder = inject(FormBuilder);
@@ -81,14 +82,20 @@ export class ContactComponent implements OnInit, AfterViewInit {
       next: (response: EmailJSResponseStatus) => {
         console.log('SUCCESS!', response.status, response.text);
         this.loading.set(false);
+        this.send.set(true);
         this.name?.setValue('');
         this.email?.setValue('');
         this.message?.setValue('');
+        this.contactForm.markAsUntouched();
       },
       error: (error: EmailJSResponseStatus) => {
         console.error('FAILED...', error.text);
       },
     });
+  }
+
+  closeMessage() {
+    this.send.set(false);
   }
 
   get name(): AbstractControl | null {
