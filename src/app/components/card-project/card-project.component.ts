@@ -7,7 +7,7 @@ import { Component, ElementRef, input, OnInit, signal, viewChild } from '@angula
   standalone: true,
   imports: [CommonModule],
   templateUrl: './card-project.component.html',
-  styleUrl: './card-project.component.scss',
+  styles: '',
   animations: [
     trigger('fadeIn', [
       state(

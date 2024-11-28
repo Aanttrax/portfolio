@@ -8,7 +8,7 @@ import { DataService } from '@services/data.service';
   standalone: true,
   imports: [CardProjectComponent],
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss',
+  styles: '',
   animations: [
     trigger('textVariant', [
       state(

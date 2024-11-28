@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './position.component.html',
-  styleUrl: './position.component.scss',
+  styles: '',
 })
 export class PositionComponent {
   position = 'Software Engineer';

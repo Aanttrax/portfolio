@@ -1,9 +1,17 @@
 const images = {
   portfoliov1: '../assets/portfolio-1.0.0.webp',
   rickMorty: '../assets/rickMorty.png',
+  msAuth: '../assets/ms-auth.webp',
 };
 
 export const portfolio = [
+  {
+    name: 'ms-auth',
+    description:
+      'A secure and scalable authentication microservice built with TypeScript, Express, and MongoDB. This project implements robust features such as user registration, login, token-based authentication with JWT, and password hashing using bcrypt',
+    image: images['msAuth'],
+    link: 'https://github.com/Aanttrax/ms-auth',
+  },
   {
     name: 'Portfolio-1.0.0',
     description:
