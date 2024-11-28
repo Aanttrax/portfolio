@@ -7,7 +7,7 @@ import { DataService } from '@services/data.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  styles: '',
 })
 export class NavbarComponent implements OnInit {
   active = signal<string>('hero');

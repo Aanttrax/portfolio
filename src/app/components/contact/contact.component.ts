@@ -23,7 +23,7 @@ import { EmailService } from '@services/email.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss',
+  styles: '',
   animations: [
     trigger('textVariant', [
       state(

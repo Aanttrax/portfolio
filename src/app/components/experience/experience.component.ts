@@ -20,7 +20,7 @@ import { DataService } from '@services/data.service';
   standalone: true,
   imports: [CardExperienceComponent, ExperienceDetailComponent],
   templateUrl: './experience.component.html',
-  styleUrl: './experience.component.scss',
+  styles: '',
   animations: [
     trigger('textVariant', [
       state(

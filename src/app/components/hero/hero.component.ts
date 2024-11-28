@@ -7,6 +7,6 @@ import { PositionComponent } from '@components/position/position.component';
   standalone: true,
   imports: [SpacemanComponent, PositionComponent],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss',
+  styles: '',
 })
 export class HeroComponent {}

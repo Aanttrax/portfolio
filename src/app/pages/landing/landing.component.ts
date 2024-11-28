@@ -18,6 +18,6 @@ import { FooterComponent } from '@shared/footer/footer.component';
     FooterComponent,
   ],
   templateUrl: './landing.component.html',
-  styleUrl: './landing.component.scss',
+  styles: '',
 })
 export class LandingPage {}

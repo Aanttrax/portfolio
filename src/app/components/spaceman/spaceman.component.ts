@@ -7,7 +7,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
   standalone: true,
   imports: [],
   templateUrl: './spaceman.component.html',
-  styleUrl: './spaceman.component.scss',
+  styles: '',
 })
 export class SpacemanComponent implements AfterViewInit {
   canvasContainer = viewChild.required<ElementRef>('canvasContainer');

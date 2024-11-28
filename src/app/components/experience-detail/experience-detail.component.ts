@@ -7,7 +7,7 @@ import { SanitizerPipe } from '@pipes/sanitizer.pipe';
   standalone: true,
   imports: [SanitizerPipe],
   templateUrl: './experience-detail.component.html',
-  styleUrl: './experience-detail.component.scss',
+  styles: '',
 })
 export class ExperienceDetailComponent {
   experience = input.required<IExperiences>();

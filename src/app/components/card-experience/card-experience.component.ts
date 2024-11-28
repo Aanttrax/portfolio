@@ -7,7 +7,7 @@ import { IExperiences } from '@models/data.interface';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './card-experience.component.html',
-  styleUrl: './card-experience.component.scss',
+  styles: '',
 })
 export class CardExperienceComponent {
   experience = input.required<IExperiences>();
