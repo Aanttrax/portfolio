@@ -2,13 +2,21 @@ const images = {
   portfoliov1: '../assets/portfolio-1.0.0.webp',
   rickMorty: '../assets/rickMorty.png',
   msAuth: '../assets/ms-auth.webp',
+  msTasks: '../assets/ms-tasks.webp',
 };
 
 export const portfolio = [
   {
+    name: 'ms-tasks',
+    description:
+      'Task Management Microservice crafted with TypeScript, Express.js, and MongoDB, delivering efficient CRUD operations through intuitive REST APIs. Designed with scalability in mind, it features a modern, strongly-typed codebase and seamless MongoDB integration using Mongoose. The project also includes a fully automated CI/CD pipeline.',
+    image: images['msTasks'],
+    link: 'https://github.com/Aanttrax/ms-tasks',
+  },
+  {
     name: 'ms-auth',
     description:
-      'A secure and scalable authentication microservice built with TypeScript, Express, and MongoDB. This project implements robust features such as user registration, login, token-based authentication with JWT, and password hashing using bcrypt',
+      'A secure and scalable authentication microservice built with TypeScript, Express, and MongoDB. This project implements robust features such as user registration, login, token-based authentication with JWT, and password hashing using bcrypt. The project also includes a fully automated CI/CD pipeline.',
     image: images['msAuth'],
     link: 'https://github.com/Aanttrax/ms-auth',
   },

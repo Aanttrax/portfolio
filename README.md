@@ -10,18 +10,18 @@ This is a portfolio project built with Angular 18. It incorporates the 3D librar
 ![Screenshot 3](./screenShot/screenshot3.webp)
 ![Screenshot 4](./screenShot/screenshot4.webp)
 
-## Features
+## 🚀 Features
 
 - List of Experiences.
 - Projects details.
 - Send Email and contact.
 
-## Requirements
+## 📝 Requirements
 
 - [Node.js](https://nodejs.org/) installed on your system.
 - [Angular CLI](https://cli.angular.io/) installed globally.
 
-## Installation
+## 🛠️ Installation
 
 Follow these steps to install and run the application:
 
@@ -51,11 +51,11 @@ Follow these steps to install and run the application:
 
 5.  Open your browser and go to http://localhost:4200/.
 
-## Contribution
+## 🤝 Contribution
 
 If you want to contribute to this project, feel free to open issues and submit pull requests.
 
-## Contact
+## 📬 Contact
 
 You can contact the project author at Arielrt20@gmail.com or Arielrt_@hotmail.com
 
