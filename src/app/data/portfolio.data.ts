@@ -3,9 +3,17 @@ const images = {
   rickMorty: '../assets/rickMorty.png',
   msAuth: '../assets/ms-auth.webp',
   msTasks: '../assets/ms-tasks.webp',
+  orchestrator: '../assets/orchestrator.webp',
 };
 
 export const portfolio = [
+  {
+    name: 'orchestrator',
+    description:
+      'This repository is an orchestrator coordinating two microservices: one for user authentication (Auth) and another for task management with CRUD functionalities. It is built using TypeScript for maintainability, Axios for HTTP requests, and employs a CI/CD pipeline with GitHub Actions. The Docker images are published to the GitHub Container Registry (GHCR), ensuring seamless deployment and distribution.',
+    image: images['orchestrator'],
+    link: 'https://github.com/Aanttrax/orchestrator',
+  },
   {
     name: 'ms-tasks',
     description:
