@@ -4,9 +4,17 @@ const images = {
   msAuth: '../assets/ms-auth.webp',
   msTasks: '../assets/ms-tasks.webp',
   orchestrator: '../assets/orchestrator.webp',
+  'task-app': '../assets/task-app.webp',
 };
 
 export const portfolio = [
+  {
+    name: 'task-app',
+    description:
+      'This task project is built with Angular 19 and demonstrates a fully functional task management system with user authentication. Users can create, update, and delete tasks through a modern and intuitive interface, while login and registration features ensure secure access. The system is architected using microservices, including ms-auth for authentication, ms-task for task management, and an orchestrator to coordinate interactions between services. Additionally, the project integrates CI/CD pipelines using GitHub Actions. Code quality is enforced through Husky and lint-staged pre-commit hooks. Deployed on GitHub Pages.',
+    image: images['task-app'],
+    link: 'https://aanttrax.github.io/task-app/',
+  },
   {
     name: 'orchestrator',
     description:
